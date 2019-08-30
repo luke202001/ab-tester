@@ -34,13 +34,14 @@ export async function UpdateParameters(account: string, aBTestBeginning: string,
     for (const workspaceCompleteData of workspacesCompleteData) {
         randomRestart = workspaceCompleteData[0] === MasterWorkspaceName ? false : RandomRestart(workspaceCompleteData[1], masterWorkspace!)
         if (!randomRestart) {
-            testingParameters.Set(MapWorkspaceData(workspacesData))
-            
             const tsmap = new TSMap<string, ABTestParameters>([...testingParameters.Get()])
-            await router.setParameters(account, {
+            router.setParameters(account, {
                 Id: testId,
                 parameterPerWorkspace: tsmap,
             })
+
+            testingParameters.Set(MapWorkspaceData(workspacesData))
+            
             return
         }
     }

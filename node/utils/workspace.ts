@@ -1,7 +1,18 @@
 import { TSMap } from 'typescript-map'
+import { MonteCarloDistribuition } from './mathTools/statistics/monteCarloSimulation'
 
 export const InitialABTestParameters: ABTestParameters = { a: 1, b: 1 }
 export const DefaultABTestParameters: ABTestParameters = { a: 0, b: 0 }
+
+export function WorkspaceToWeightsDistribution (Workspaces: WorkspaceData[]): ABTestParameters[] {
+    let ret = []
+    let ab_params = []
+    for (const El of Workspaces) {
+        ab_params.push(WorkspaceToBetaDistribution(El))
+    }
+    ret = MonteCarloDistribuition(ab_params)
+    return ret
+}
 
 export const WorkspaceToBetaDistribution = (Workspace: WorkspaceData): ABTestParameters => ({
     a: Workspace.OrderSessions + 1,

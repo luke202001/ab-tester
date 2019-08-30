@@ -1,5 +1,5 @@
-import { InitialABTestParameters, WorkspaceToBetaDistribution } from '../utils/workspace'
-
+import { InitialABTestParameters, WorkspaceToBetaDistribution, WorkspaceToWeightsDistribution } from '../utils/workspace'
+import { Workspaces } from '@vtex/api';
 export default class TestingParameters {
     private parameters: Map<string, ABTestParameters>
 
@@ -29,10 +29,16 @@ export default class TestingParameters {
     }
 
     public Set = (workspacesData: Map<string, WorkspaceData>) => {
+        let workspaces = []
         for (const workspace of this.parameters.keys()) {
             if (workspacesData.has(workspace)) {
-                this.parameters.set(workspace, WorkspaceToBetaDistribution(workspacesData.get(workspace)!))
+                workspaces.push(workspace)
             }
+        }
+        let res = WorkspaceToWeightsDistribution(workspaces)
+
+        for (let i = 0; i < workspaces.length; i++) {
+            this.parameters.set(workspaces[i], res[i])
         }
     }
 }
