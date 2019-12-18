@@ -42,6 +42,11 @@ declare global {
     OrdersValueB: number
     OrdersValueALast24Hours: number
     OrdersValueBLast24Hours: number
+    UValue: number
+    CommonLanguageEffectSizeWorkspaceA: number
+    CommonLanguageEffectSizeWorkspaceB: number
+    OrdersMedianWorkspaceA: number
+    OrdersMedianWorkspaceB: number
   }
 
   export interface ABTestParameters {

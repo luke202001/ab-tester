@@ -19,6 +19,11 @@ export const DefaultEvaluationResponse = (abTestBeginning: string, workspaceANam
     WorkspaceB: workspaceBName,
     WorkspaceBSessions: 0,
     WorkspaceBSessionsLast24Hours: 0,
+    UValue: 0,
+    CommonLanguageEffectSizeWorkspaceA: 0,
+    CommonLanguageEffectSizeWorkspaceB: 0,
+    OrdersMedianWorkspaceA: 0,
+    OrdersMedianWorkspaceB: 0,
 })
 
 export const EvaluationResponse = (abTestBeginning: string, workspaceAData: WorkspaceCompleteData, workspaceBData: WorkspaceCompleteData, winner: string, lossA: number, lossB: number, probabilityOneBeatTwo: number, pValue: number): TestResult => ({
@@ -42,4 +47,9 @@ export const EvaluationResponse = (abTestBeginning: string, workspaceAData: Work
     WorkspaceB: workspaceBData.SinceBeginning.Workspace,
     WorkspaceBSessions: workspaceBData.SinceBeginning.Sessions,
     WorkspaceBSessionsLast24Hours: workspaceBData.Last24Hours.Sessions,
+    UValue: 0,
+    CommonLanguageEffectSizeWorkspaceA: 0,
+    CommonLanguageEffectSizeWorkspaceB: 0,
+    OrdersMedianWorkspaceA: 0,
+    OrdersMedianWorkspaceB: 0,
 })
