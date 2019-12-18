@@ -7,7 +7,6 @@ export async function Evaluate(abTestBeginning: string, workspaceAData: Workspac
     if (workspaceAData.SinceBeginning.Sessions === 0 || workspaceBData.SinceBeginning.Sessions === 0) {
         return DefaultEvaluationResponse(abTestBeginning, workspaceAData.SinceBeginning.Workspace, workspaceBData.SinceBeginning.Workspace)
     }
-
     const lossA = LossFunctionChossingVariantOne(WorkspaceToBetaDistribution(workspaceAData.SinceBeginning), WorkspaceToBetaDistribution(workspaceBData.SinceBeginning))
     const lossB = LossFunctionChossingVariantOne(WorkspaceToBetaDistribution(workspaceBData.SinceBeginning), WorkspaceToBetaDistribution(workspaceAData.SinceBeginning))
     const betaDistributionA = WorkspaceToBetaDistribution(workspaceAData.SinceBeginning)
