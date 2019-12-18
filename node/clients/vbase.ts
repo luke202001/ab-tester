@@ -42,6 +42,16 @@ export default class VBase extends BaseClient {
     }
   }
 
+  public getTestType = async (ctx: Context): Promise<TestType> => {
+    try {
+      const testData: VBaseABTestData = await this.get(testFileName, ctx)
+      return testData.testType
+    } catch (ex) {
+      ctx.clients.logger.error(ex)
+      throw new Error(`An error occurred trying to get test's type!`)
+    }
+  }
+
   public save = async (data: any, file: string, ctx: Context) => {
     try {
       await this.saveFile(bucketName(ctx.vtex.account), file, jsonStream(data))
