@@ -2,7 +2,8 @@
   "dependencies": {
     "ramda": "^0.25.0",
     "typescript-map": "^0.0.7",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "ts-gaussian": "1.2.2"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
@@ -14,7 +15,8 @@
     "tslint": "^5.20.1",
     "tslint-config-vtex": "^2.0.0",
     "typescript": "3.7.3",
-    "typescript-map": "^0.0.7"
+    "typescript-map": "^0.0.7",
+    "ts-gaussian": "1.2.2"
   },
   "scripts": {
     "lint": "tsc --noEmit && tslint -c tslint.json './**/*.ts'"
