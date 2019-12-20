@@ -108,7 +108,7 @@ export class TestingParametersRevenue implements ITestingParameters{
             sum += U
         }
         for (let i = 0; i < size; i++) {
-            this.parameters.set(testData.workspaceNames[i], {a:(testData.U[i]/sum), b:0})
+            this.parameters.set(testData.workspaceNames[i], {a:Math.round(10000 * testData.U[i]/sum), b:0})
         }
     }
 
@@ -172,7 +172,7 @@ interface MannWhitneyTestData {
 }
 
 const CheckProportionBounds = (proportion: number): number => {
-    return proportion >= 0 && proportion <= 10000 ? proportion : 10000
+    return proportion >= 0 && proportion <= 10000 ? Math.floor(proportion) : 10000
 }
 
 const MapInitialParameters = (workspaces: ABTestWorkspace[]): Map<string, ABTestParameters> => {
