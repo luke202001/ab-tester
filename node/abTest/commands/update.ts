@@ -1,6 +1,6 @@
+import { TestType } from '../../clients/vbase'
 import TestingWorkspaces from '../../typings/testingWorkspace'
 import { UpdateParameters } from '../updateParameters'
-import { TestType } from '../../clients/vbase';
 
 export async function UpdateStatusOnEvent(ctx: Context): Promise<void> {
   const { vtex: { account }, clients: { abTestRouter, logger, storedash, storage } } = ctx
